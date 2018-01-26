@@ -82,7 +82,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qhu-bC-yih" firstAttribute="top" secondItem="Aur-aK-0wt" secondAttribute="top" id="7AH-Bc-U6W"/>
-                            <constraint firstItem="qhu-bC-yih" firstAttribute="leading" secondItem="Aur-aK-0wt" secondAttribute="leadingMargin" id="h3G-T4-onw"/>
+                            <constraint firstItem="qhu-bC-yih" firstAttribute="leading" secondItem="Aur-aK-0wt" secondAttribute="leadingMargin" constant="40" id="h3G-T4-onw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qhu-bC-yih" secondAttribute="trailing" id="hix-5I-g9S"/>
                             <constraint firstAttribute="bottom" secondItem="qhu-bC-yih" secondAttribute="bottom" id="pcx-AQ-Yi3"/>
                         </constraints>
