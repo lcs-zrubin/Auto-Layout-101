@@ -1,0 +1,2021 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;\f2\fnil\fcharset0 AppleColorEmoji;
+\f3\fnil\fcharset0 LucidaGrande;\f4\fnil\fcharset77 ZapfDingbatsITC;}
+{\colortbl;\red255\green255\blue255;\red30\green30\blue30;\red53\green118\blue190;\red38\green38\blue38;
+\red242\green242\blue242;\red31\green31\blue31;\red255\green0\blue0;}
+{\*\expandedcolortbl;;\csgenericrgb\c11765\c11765\c11765;\csgenericrgb\c20784\c46275\c74510;\csgenericrgb\c14902\c14902\c14902;
+\csgenericrgb\c94902\c94902\c94902;\csgenericrgb\c12157\c12157\c12157;\csgenericrgb\c100000\c0\c0;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
+\margl1440\margr1440\vieww25400\viewh20180\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs64 \cf2 \expnd0\expndtw0\kerning0
+Auto Layout 101\
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf2 \
+by {\field{\*\fldinst{HYPERLINK "https://www.weheartswift.com/author/andrei512/"}}{\fldrslt \cf3 Andrei Puni}}\'a0on\'a0{\field{\*\fldinst{HYPERLINK "https://www.weheartswift.com/auto-layout-101/"}}{\fldrslt September 9, 2015}}\cf3 \
+\cf2 Modified by Russell Gordon on Friday, January 26, 2018\
+\pard\pardeftab720\partightenfactor0
+
+\fs60 \cf2 \
+Learning Goal
+\fs26 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 In completing this tutorial and both of the related assignments, you will be demonstrating understanding of this learning goal from your Computer Science portfolio:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 7.41.36 AM.png \width8140 \height3480 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs26 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs60 \cf2 Use Source Control
+\fs26 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 As you complete the tutorial, be sure to 
+\b commit often
+\b0 .
+\b  
+\b0 This will help you as it\'92s very easy to make errors while completing a long tutorial. If you commit often, you can always go back to your last commit before you made a mistake.\
+\
+If you haven\'92t already, fork and clone this repository.
+\fs26 \
+
+\fs32 \
+\pard\pardeftab720\partightenfactor0
+
+\fs60 \cf2 Introduction\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \
+A few years ago you might have gotten away without Auto Layout.\
+\
+Now there are three different iPhone sizes, two different iPad sizes, 
+\i and
+\i0  you can run two apps on iPad at the same time with Split View.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\b \cf2 Auto Layout is the way to go!
+\b0 \
+\
+This tutorial will cover the basics of Auto Layout so that you can start using it in your apps.\
+\
+We are going to go in depth on a few examples so that we cover all the basic types of relations you can have.\
+\
+If there is nothing else you remember from this tutorial, remember this:\
+\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/AutolayoutPG/AnatomyofaConstraint.html#//apple_ref/doc/uid/TP40010853-CH9-SW16"}}{\fldrslt 
+\i \cf2 \'93Two constraints per view per dimension.\'94}}\
+\
+In the end there are a couple of exercises to practice what you\'92ve learned.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs60 \cf2 What is Auto Layout?\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \
+Auto Layout is a system that makes it easy to support multiple screen sizes with one interface by making your interface react to changes.\
+\
+It does this by solving a set of layout 
+\b constraints
+\b0  that describe the interface of your app.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs60 \cf2 Why use Auto Layout?\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \
+Auto Layout makes layout code much simpler to write and maintain.\
+\
+Most of the time you don\'92t event have to write code.\
+\
+That means less time writing code and debugging it.\
+\
+It\'92s also easier to understand constraints than the other approaches because we generally think in language (with words) rather than in equations (with mathematics).\
+\
+
+\i Which one do you understand faster?\
+
+\i0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf4 \cb5 rightImage.x = leftImage.x + leftImage.width + padding\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf2 \cb1 \
+vs:\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs28\fsmilli14400 \cf2 \cb5 rightImage
+\f0\fs32 \cb1  is 
+\f1\fs28\fsmilli14400 \cb5 padding
+\f0\fs32 \cb1  points to the right of 
+\f1\fs28\fsmilli14400 \cb5 leftImage
+\f0\fs32 \cb1 \
+\
+With only a few exceptions Auto Layout is the tool for the job.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs60 \cf2 Layout constraints\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \
+Layout constraints are descriptions of the mathematical properties and relations between views.\
+\
+The 
+\f1\fs28\fsmilli14400 \cb5 NSLayoutConstraint
+\f0\fs32 \cb1  class is used to create constraints on both iOS and Mac.\
+\
+All constraints have a coefficient and a constant.\
+\
+There are several types of constraints:\
+\pard\tx720\pardeftab720\partightenfactor0
+\cf2 \kerning1\expnd0\expndtw0 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0\cf2 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+size constraints \'96 
+\i e.g.: an image should have a width of 200
+\i0 \
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+alignment constraints \'96 
+\i e.g.: a label should be centred vertically on the screen
+\i0 \
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+spacing constraints \'96 
+\i e.g.: space between two labels or between a view and the margin of the screen\
+\pard\tx720\pardeftab720\partightenfactor0
+
+\i0 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 What\'92s the purpose of constraints?\
+\
+In the end by solving the given set of constraints, Auto Layout will 
+\b determine the frame
+\b0  for each view in your screen.\
+\
+So each view should have constraints that will be used to determine for its 
+\f1\fs28\fsmilli14400 \cb5 width
+\f0\fs32 \cb1 , 
+\f1\fs28\fsmilli14400 \cb5 height
+\f0\fs32 \cb1 , 
+\f1\fs28\fsmilli14400 \cb5 x
+\f0\fs32 \cb1  and 
+\f1\fs28\fsmilli14400 \cb5 y
+\f0\fs32 \cb1  position.\
+\
+There are a few exceptions but we are going to get into them later.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs60 \cf2 Relations to parent\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \
+A view can change its size based on its superview. \
+\
+One of the most common things you will do is make a view fill its parent.\
+\
+Let\'92s have some fun! 
+\f2 \uc0\u55357 \u56846 
+\f0 \
+\
+Open 
+\f1\fs28\fsmilli14400 \cb5 Main.storyboard
+\f0\fs32 \cb1 .\cf3 \
+\
+\cf2 Find the initial view controller (it is the blank one \'96\'a0you may need to pan, or zoom in or out on the storyboard):\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 8.36.56 AM.png \width7200 \height10660 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 Then add a view from the 
+\f1\fs28\fsmilli14400 \cb5 Object Library
+\f0\fs32 \cb1 :\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 5.50.52 AM.png \width5200 \height4340 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Resize the view so it fills the screen. You should see some helper lines when you have the correct size.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-11 at 4.51.08 PM.png \width7400 \height11500 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 Give it a background color so you can see it. I made it red:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 5.51.58 AM.png \width5200 \height4220 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+OK\'85 so how will this interface look on an actual device?\
+\
+Xcode has a tool for this! Open the the 
+\f1\fs28\fsmilli14400 \cb5 Assistant Editor
+\f0\fs32 \cb1  from the segmented control in the top right corner of Xcode.\
+\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/3849d6e873ad86a5c952f8d8539618057e74b3eb/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30382f53637265656e2d53686f742d323031352d30382d32372d61742d31352e35322e34382d65313434303638303135373836322e706e67"}}{\fldrslt \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30382f53637265656e2d53686f742d323031352d30382d32372d61742d31352e35322e34382d65313434303638303135373836322e706e67.png \width1545 \height450 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+The default will open the Swift code of the view controller you where editing.\
+\
+In the top of the 
+\f1\fs28\fsmilli14400 \cb5 Assistant Editor
+\f0\fs32 \cb1  you will find this menu. Click on Automatic.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/bdfe99798437a4fac02b53c779193af1e3f63825/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30342d61742d30312e33372e30332e706e67"}}{\fldrslt \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30342d61742d30312e33372e30332e706e67.png \width5480 \height300 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 You will see this menu.\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/0a00881ab2d990dda19a4c87f37c5984ce992f39/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f73656c6563742d707265766965772d65313434313332303030343335352e706e67"}}{\fldrslt \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f73656c6563742d707265766965772d65313434313332303030343335352e706e67.png \width6660 \height2700 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+\cf3 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 Select 
+\f1\fs28\fsmilli14400 \cb5 Preview > Main.storyboard
+\f0\fs32 \cb1  to see a preview of your interface. You can pinch to zoom a bit if needed:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.16.58 AM.png \width13640 \height17400 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 You can add more devices from the 
+\f1\fs28\fsmilli14400 \cb5 +
+\f0\fs32 \cb1  button in the lower left corner.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.17.27 AM.png \width4500 \height5300 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Add a few devices:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.19.19 AM.png \width18100 \height12280 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 Now we see that our interface has a few problems on iPad.\
+\
+If you feel like you need more space when working on your interface with 
+\f1\fs28\fsmilli14400 \cb5 Preview
+\f0\fs32 \cb1  open, you can close the 
+\f1\fs28\fsmilli14400 \cb5 Navigator
+\f0\fs32 \cb1  from the control on the top right corner of Xcode.\
+\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/36a698d98505fe7e3edbff209e003224221df6bc/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30342d61742d30312e35352e33342e706e67"}}{\fldrslt \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30342d61742d30312e35352e33342e706e67.png \width2120 \height620 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+\cf3 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 OK. Now that you have enough room we start adding some constraints.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 Open the 
+\f1\fs28\fsmilli14400 \cb5 Document Outline
+\f0\fs32 \cb1  in 
+\f1\fs28\fsmilli14400 \cb5 Interface Builder
+\f0\fs32 \cb1  from the button on the lower left corner.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.20.05 AM.png \width4340 \height1520 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 The easiest way to add a constraint is by control dragging from one view to another.\
+\
+Hold the control key 
+\f3\fs28\fsmilli14400 \cb5 \uc0\u8963 
+\f0\fs32 \cb1  and then click drag from the red view to its superview.\
+\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/9814ea440692f2d4a857af9cd6c491578283bf8f/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e73686f742d65313434313332313736313230332e706e67"}}{\fldrslt \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e73686f742d65313434313332313736313230332e706e67.png \width3870 \height2910 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+
+\b \cf6 \
+\pard\pardeftab720\partightenfactor0
+
+\b0 \cf2 \
+You should see a list of relations you can set.\
+\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/e848835da4c1e0cb0b3758e25e1870930dad597a/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30342d61742d30322e31352e35312d65313434313332323436303838322e706e67"}}{\fldrslt \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30342d61742d30322e31352e35312d65313434313332323436303838322e706e67.png \width4800 \height4170 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Hold alt 
+\f3\fs28\fsmilli14400 \cb5 \uc0\u8997 
+\f0\fs32 \cb1  to change the available constraint options.\
+\
+The constraints shown when pressing alt 
+\f3\fs28\fsmilli14400 \cb5 \uc0\u8997 
+\f0\fs32 \cb1  are the same: the only thing that differs is whether they are relative to the margin or not.\
+\
+We are going to cover margins later in this tutorial.\
+\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/02561027b57c8778f0b38e38108b39c3f32d1b30/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f686f6c642d616c742d65313434313332323435303434352e6a7067"}}{\fldrslt \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f686f6c642d616c742d65313434313332323435303434352e6a7067.jpg \width4800 \height4470 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+\cf3 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 Add the following constraints \'96\'a0you can hold the Shift key to add multiple constraints at once:\
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Leading Space to Container\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Trailing Space to Container\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Top Space to Container Margin\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Bottom Space to Container Margin\
+\pard\tx720\pardeftab720\partightenfactor0
+\cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.23.30 AM.png \width6740 \height4340 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\tx720\pardeftab720\partightenfactor0
+\cf2 \
+Then click 
+\f1\fs28\fsmilli14400 \cb5 Add Constraints
+\f0\fs32 \cb1 .\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Now the interface should work on all devices \'96 that is, the red view should fill each device\'92s screen:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.24.53 AM.png \width18240 \height12500 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 You can inspect the constraints you added from the 
+\f1\fs28\fsmilli14400 \cb5 Size Inspector
+\f0\fs32 \cb1 :\
+\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/ad034efc36ce0e39f525a30938f6f52e064b99e2/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30342d61742d30322e33302e33352d65313434313332333137393939312e706e67"}}{\fldrslt \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30342d61742d30322e33302e33352d65313434313332333137393939312e706e67.png \width3840 \height8325 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+\cf3 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 What does 
+\i Trailing/Leading/Top/Bottom Space to [Container] 
+\i0 mean?\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30342d61742d30322e34302e34392e706e67.png \width6000 \height6230 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 It\'92s the space between the \ul view\ulnone  and its \ul superview\ulnone .\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs28\fsmilli14400 \cf2 \cb5 Leading
+\f0\fs32 \cb1  is on the left.\
+\
+
+\f1\fs28\fsmilli14400 \cb5 Trailing
+\f0\fs32 \cb1  is on the right.\
+\
+
+\f1\fs28\fsmilli14400 \cb5 Top
+\f0\fs32 \cb1  is, well, above or on top of the view.\
+\
+
+\f1\fs28\fsmilli14400 \cb5 Bottom
+\f0\fs32 \cb1  is below the view.\
+\
+In the steps we just completed, all of these spaces are set to  
+\f1\fs28\fsmilli14400 \cb5 0
+\f0\fs32 \cb1 .\
+\
+\pard\pardeftab720\partightenfactor0
+
+\i \cf2 How can I change that? What if I want to leave some empty space?\
+
+\i0 \
+Select the leading space constraint. You can find it by selecting the view and going to the 
+\f1\fs28\fsmilli14400 \cb5 Size Inspector
+\f0\fs32 \cb1 :\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-11 at 5.04.26 PM.png \width4960 \height860 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Click on the 
+\f1\fs28\fsmilli14400 \cb5 Edit
+\f0\fs32 \cb1  button and set the constant to 
+\f1\fs28\fsmilli14400 \cb5 40
+\f0\fs32 \cb1 .\
+\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/aeabcd697113cb8427ab46e3e2b64b8eec3b642e/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30342d61742d31342e34332e32312d65313434313336373430393837392e706e67"}}{\fldrslt \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30342d61742d31342e34332e32312d65313434313336373430393837392e706e67.png \width3825 \height8070 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+\cf3 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 You will notice that the view will resize according to the new constraint.\
+\
+This is reflected on all the devices in the 
+\f1\fs28\fsmilli14400 \cb5 Preview
+\f0\fs32 \cb1 , too.\cf3 \
+\
+\cf2 Double click on the constraint and take a closer look:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-11 at 5.09.48 PM.png \width4920 \height840 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+You will see this:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 6.06.24 AM.png \width5200 \height5520 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 Before we mentioned that constraints describe the mathematical properties and relations between views.\
+\
+
+\i Can you guess what mathematical relation the Leading Space constraint describes? Look closely at the Horizontal Space Constraint section.\
+
+\i0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic 1__#$!@%!#__Screen Shot 2016-11-12 at 6.06.24 AM.png \width5200 \height5520 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf4 \cb5 View.Leading = Superview.Leading + 40\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf2 \cb1 \
+Ok. Let\'92s try another one. 
+\f2 \uc0\u55357 \u56842 
+\f0 \
+\
+In the storyboard there should be another screen to the right of the one you have been working with.\
+\
+Make that screen the initial view controller.\
+\
+To do this, select the view controller object in the storyboard (be sure to click the top of the object \'96\'a0look for the yellow circle icon to be highlighted):\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-11 at 6.00.44 PM.png \width4120 \height7300 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 Now select the 
+\f1\fs28\fsmilli14400 \cb5 Attributes Inspector
+\f0\fs32 \cb1 : \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-11 at 5.14.35 PM.png \width5100 \height4360 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Check the 
+\f1\fs28\fsmilli14400 \cb5 Is Initial View Controller
+\f0\fs32 \cb1  checkbox. The arrow should now point to the other screen:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-11 at 6.01.37 PM.png \width5420 \height7400 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 Our goal is to make the the 
+\f1\fs28\fsmilli14400 \cb5 BottomContainer
+\f0\fs32 \cb1  (the grey rectangle) stick to the bottom of the screen and fill up the width of the screen.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs28\fsmilli14400 \cf2 \cb5 TitleLabel
+\f0\fs32 \cb1  (with the text \'93\'93Auto Layout 101 \'96\'a0We 
+\f2 \uc0\u10084 \u65039 
+\f0  Swift\'94 should fit inside 
+\f1\fs28\fsmilli14400 \cb5 BottomContainer
+\f0\fs32 \cb1  with all the text within the label visible.\
+\
+Open 
+\f1\fs28\fsmilli14400 \cb5 Preview
+\f0\fs32 \cb1  to see how this interface currently behaves.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.28.37 AM.png \width18020 \height12440 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 Not even close. Let\'92s handle the container first. 
+\f2 \uc0\u55357 \u56837 
+\f0 \
+\
+Making the container stick to the bottom and fill up the width of the screen is pretty similar to making it fill the screen.\
+
+\i \
+Can you guess which constraints we are going to use?
+\i0 \
+\
+This time, the only difference is that instead of adding a Top Space constraint we are going to add a constraint to specify the container\'92s height.\
+\
+Let\'92s get started.\
+\
+First, if needed, expand the primary view by clicking the disclosure triangle in the 
+\f1\fs28\fsmilli14400 \cb5 Document Outline
+\f0\fs32 \cb1  : \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.32.03 AM.png \width5380 \height4460 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 Be sure you have selected the 
+\f1\fs28\fsmilli14400 \cb5 BottomContainer
+\f0\fs32 \cb1  object:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.33.24 AM.png \width5360 \height5880 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Then control drag to add constraints, from 
+\f1\fs28\fsmilli14400 \cb5 BottomContainer
+\f0\fs32 \cb1  to the superview:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 4.18.36 PM.png \width5320 \height3440 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+First add the constraints for leading, trailing and bottom space. Remember to hold alt 
+\f3\fs28\fsmilli14400 \cb5 \uc0\u8997 
+\f0\fs32 \cb1  to change the options.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.35.12 AM.png \width5120 \height4100 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 You will see the following at the bottom of the screen in the storyboard:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 6.14.00 AM.png \width6280 \height2480 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Just now we added constraints that represent relations between two views \'96\'a0
+\f1\fs28\fsmilli14400 \cb5 BottomContainer
+\f0\fs32 \cb1  and the superview.\
+\
+Notice the red borders. They signal a missing constraint or an error.\
+\
+Blue borders mean that the view has enough constraints and that they are satisfied.\
+\
+When we add the height constraint for 
+\f1\fs28\fsmilli14400 \cb5 BottomContainer
+\f0\fs32 \cb1  the red borders will be replaced by blue borders, and all will be well.\
+\
+In order to set the height of the container we only need to 
+\f1\fs28\fsmilli14400 \cb5 Pin
+\f0\fs32 \cb1  the value of a property.\
+\
+Select 
+\f1\fs28\fsmilli14400 \cb5 BottomContainer
+\f0\fs32 \cb1  the 
+\f1\fs28\fsmilli14400 \cb5 Document Outline
+\f0\fs32 \cb1  :\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.33.24 AM.png \width5360 \height5880 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Then click on the 
+\f1\fs28\fsmilli14400 \cb5 Pin
+\f0\fs32 \cb1  button. Check 
+\f1\fs28\fsmilli14400 \cb5 Height
+\f0\fs32 \cb1 , set to a value of 
+\f1\fs28\fsmilli14400 \cb5 60
+\f0\fs32 \cb1 , and then click 
+\f1\fs28\fsmilli14400 \cb5 Add 1 Constraint
+\f0\fs32 \cb1  :\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.39.13 AM.png \width16240 \height7780 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+If a view is misaligned a yellow dotted frame will show the position and size indicated by its constraints. You can always press 
+\f1\fs28\fsmilli14400 \cb5 Command-Z
+\f0\fs32 \cb1  on the keyboard to undo your last step and try again.\
+\
+You should see that the red borders on 
+\f1\fs28\fsmilli14400 \cb5 BottomContainer
+\f0\fs32 \cb1  are now blue:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.42.59 AM.png \width13040 \height4100 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+If we look at the preview now we see that we are getting closer to our goal, but there is still a gap between 
+\f1\fs28\fsmilli14400 \cb5 BottomContainer
+\f0\fs32 \cb1  and the bottom of the superview:\
+\pard\pardeftab720\partightenfactor0
+
+\fs35 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.42.20 AM.png \width23440 \height14700 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs35 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 So why is this? Select the 
+\f1\fs28\fsmilli14400 \cb5 BottomContainer
+\f0\fs32 \cb1  in the 
+\f1\fs28\fsmilli14400 \cb5 Document Outline
+\f0\fs32 \cb1 :
+\fs35 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-11 at 5.33.10 PM.png \width4620 \height3900 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+Be sure the 
+\f1\fs28\fsmilli14400 \cb5 Utilities
+\f0\fs32 \cb1   area is open:
+\fs35 \
+\
+ 
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-11 at 5.34.50 PM.png \width2060 \height640 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\
+\
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+Open the 
+\f1\fs28\fsmilli14400 \cb5 Size Inspector
+\f0\fs32 \cb1  and review the constraints:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.44.17 AM.png \width5120 \height11400 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+What do you notice? 
+\fs35 \
+\
+
+\fs32 Our goal is for the container to stick to the bottom of the view, and right now two constraints have relations that don\'92t help with this:\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf4 \cb5 \expnd0\expndtw0\kerning0
+Superview.Trailing = BottomContainer.Trailing - 225
+\f0\fs35 \cf2 \cb1 \
+\
+
+\f1\fs24 \cf4 \cb5 Superview.Bottom Margin = BottomContainer.Bottom + 67
+\f0\fs35 \cf2 \cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 That\'92s not what we want \'96\'a0both constants should be 
+\f1 \cb5 0
+\f0 \cb1 . \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 6.31.34 AM.png \width4500 \height1800 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+Edit both of the constraints and set the constant to 
+\f1 \cb5 0
+\f0 \cb1  in each case, resulting in the following:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.46.59 AM.png \width5080 \height3580 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+We can see in 
+\f1\fs28\fsmilli14400 \cb5 Preview
+\f0\fs32 \cb1  that things look much better \'96 the container is now snug against the bottom of the superview (the iPhone X is another matter \'96 but that\'92s another tutorial):\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.46.01 AM.png \width22500 \height14980 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\
+Look closely at the text, though. On the iPhone SE above, the label runs up against the right side of the superview.\
+\
+And the text may truncated (indicated by the \'85) depending on what size devices you are previewing:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 6.33.16 AM.png \width17040 \height9780 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+There is a bit more work yet to do!\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+
+\fs60 \cf2 Inequalities\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs28\fsmilli14400 \cf2 \cb5 TitleLabel
+\f0\fs32 \cb1  is not completely visible on smaller screens. This is because it keeps the width it was originally set to in 
+\f1\fs28\fsmilli14400 \cb5 Interface Builder
+\f0\fs32 \cb1 .\
+\
+Add constraints from 
+\f1\fs28\fsmilli14400 \cb5 TitleLabel
+\f0\fs32 \cb1  to 
+\f1\fs28\fsmilli14400 \cb5 BottomContainer
+\f0\fs32 \cb1 :\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 4.23.10 PM.png \width5360 \height3180 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab720\partightenfactor0
+\cf0 \
+\
+\'85
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+ for leading, trailing, and top space, using the same control-drag approach in the 
+\f1\fs28\fsmilli14400 \cb5 Document Outline
+\f0\fs32 \cb1  as we have before:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-11 at 5.48.02 PM.png \width4620 \height4240 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+The label still doesn\'92t fit inside the container:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 8.56.38 AM.png \width8380 \height1940 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 Let\'92s fix this.  Be sure 
+\f1\fs28\fsmilli14400 \cb5 TitleLabel
+\f0\fs32 \cb1  is still selected in the 
+\f1\fs28\fsmilli14400 \cb5 Document Outline
+\f0\fs32 \cb1 , then review the constraints in the 
+\f1\fs28\fsmilli14400 \cb5 Attributes Inspector
+\f0\fs32 \cb1 :\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.49.51 AM.png \width5120 \height2820 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+We will set the trailing space between the label and container to be 
+\b at least
+\b0  14 points rather than 
+\b equals
+\b0 .\
+\
+Constraints don\'92t only express equality relations. You can also say that a certain attribute should be 
+\i greater than
+\i0  or 
+\i less than
+\i0  another one.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 Double-click the trailing space constraint in the 
+\f1\fs28\fsmilli14400 \cb5 Attributes Inspector
+\f0\fs32 \cb1  and change the relation from 
+\f1\fs28\fsmilli14400 \cb5 Equal
+\f0\fs32 \cb1  to 
+\f1\fs28\fsmilli14400 \cb5 Greater Than or Equal
+\f0\fs32 \cb1  and the constant to 
+\f1\fs28\fsmilli14400 \cb5 14
+\f0\fs32 \cb1 :\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 6.53.29 AM.png \width5180 \height5540 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 You might have the 
+\f1\fs28\fsmilli14400 \cb5 First Item
+\f0\fs32 \cb1  and 
+\f1\fs28\fsmilli14400 \cb5 Second Item
+\f0\fs32 \cb1  reversed.\
+\
+In that case set the relation to 
+\f1\fs28\fsmilli14400 \cb5 Less Than or Equal
+\f0\fs32 \cb1  and the constant to 
+\f1\fs28\fsmilli14400 \cb5 -14
+\f0\fs32 \cb1  or reverse the order from the 
+\f1\fs28\fsmilli14400 \cb5 First/Second Item
+\f0\fs32 \cb1  dropdown.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 If you look at your constraint in the 
+\f1\fs28\fsmilli14400 \cb5 Document Outline
+\f0\fs32 \cb1  you now see that it shows a 
+\f1\fs28\fsmilli14400 \cb5 \uc0\u8805 
+\f0\fs32 \cb1  sign to indicate that that constraint is an inequality.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 6.54.29 AM.png \width5220 \height2180 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 That\'92s better \'96\'a0the label now fits inside the container on smaller devices.\
+\
+But we notice in 
+\f1\fs28\fsmilli14400 \cb5 Preview
+\f0\fs32 \cb1  that on smaller devices the text itself may now truncated within 
+\f1\fs28\fsmilli14400 \cb5 TitleLabel
+\f0\fs32 \cb1  on several devices (that\'92s because the label itself is made smaller by the constraint we adjusted a moment ago):\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.57.01 AM.png \width22340 \height15220 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 To fix this, select the 
+\f1\fs28\fsmilli14400 \cb5 TitleLabel
+\f0\fs32 \cb1  in the 
+\f1\fs28\fsmilli14400 \cb5 Document Outline
+\f0\fs32 \cb1  :\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 6.53.01 AM.png \width7300 \height2960 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Now from the 
+\f1\fs28\fsmilli14400 \cb5 Attributes Inspector
+\f0\fs32 \cb1  change the 
+\f1\fs28\fsmilli14400 \cb5 Autoshrink
+\f0\fs32 \cb1  attribute from 
+\f1\fs28\fsmilli14400 \cb5 Fixed Font Size
+\f0\fs32 \cb1  to 
+\f1\fs28\fsmilli14400 \cb5 Minimum Font Size
+\f0\fs32 \cb1 .\
+\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/996f0761215e384f8e4825ab402c769aa14bff6e/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30342d61742d31342e30362e32362d65313434313336343934323631322e706e67"}}{\fldrslt \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30342d61742d31342e30362e32362d65313434313336343934323631322e706e67.png \width3885 \height6270 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+\cf3 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 A new field should appear after you do that. Set the minimum font size to 
+\f1\fs28\fsmilli14400 \cb5 14
+\f0\fs32 \cb1 .\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/c6f8e78afed0e91615a1c76c12779708b6ce744b/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30342d61742d31352e34342e33312d65313434313337303735353935362e706e67"}}{\fldrslt \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30342d61742d31352e34342e33312d65313434313337303735353935362e706e67.png \width3855 \height1005 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Now all of the text will display on all devices without the \'85 to indicate that text was truncated:\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 7.02.57 AM.png \width16600 \height11040 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Progress. However, it should offend your sensibilities that the text is not centred on iPad.\
+\
+Also, if you move your mouse over the bottom of any device preview and try rotating the device, particularly the smaller devices, what do you see?\
+\
+To fix this, in the 
+\f1\fs28\fsmilli14400 \cb5 Document Outline
+\f0\fs32 \cb1  control-drag from 
+\f1\fs28\fsmilli14400 \cb5 TitleLabel
+\f0\fs32 \cb1  to 
+\f1\fs28\fsmilli14400 \cb5 Bottom Container
+\f0\fs32 \cb1  and set a Centre Horizontally constraint:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 7.13.08 AM.png \width4520 \height4140 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+You will notice that nothing changes in the device previews.\
+\
+This is because the new constraint to centre 
+\f1\fs28\fsmilli14400 \cb5 TitleLabel
+\f0\fs32 \cb1  within 
+\f1\fs28\fsmilli14400 \cb5 Bottom Container
+\f0\fs32 \cb1  is competing with the leading space constraint.\
+\
+Open the 
+\f1\fs28\fsmilli14400 \cb5 Size Inspector
+\f0\fs32 \cb1  with 
+\f1\fs28\fsmilli14400 \cb5 TitleLabel
+\f0\fs32 \cb1  selected.\
+\
+Despite listing the new Align Centre constraint first, Auto Layout gives precedence to the leading space constraint, which is selected here:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 7.01.17 AM.png \width5040 \height3500 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+So, remove the leading space constraint \'96 it is easiest to do this from the 
+\f1\fs28\fsmilli14400 \cb5 Document Outline
+\f0\fs32 \cb1  by highlighting the constraint and then pressing the Delete key:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 7.18.02 AM.png \width6400 \height3340 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 You will notice that 
+\f1\fs28\fsmilli14400 \cb5 TitleLabel
+\f0\fs32 \cb1  is now centred within 
+\f1\fs28\fsmilli14400 \cb5 Bottom Container
+\f0\fs32 \cb1  on iPad and on other devices when they are rotated:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 7.04.16 AM.png \width20340 \height12080 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+
+\i \cf2 \
+
+\i0 In the next part of the tutorial we\'92ll fix the issues with the We 
+\f4 \cf7 \uc0\u10084 \cf2  
+\f0 Swift portion of the interface.\cf3 \
+
+\i \cf2 \
+What other relations can be created?
+\i0 \
+\
+Note that we can add these constraints to any view:\
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls3\ilvl0
+\b \cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+size attributes
+\b0 : width and height\
+\ls3\ilvl0
+\b \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+alignment attributes
+\b0 : leading, trailing, top, bottom, left, right centerX and centerY.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls3\ilvl0\cf2 \kerning1\expnd0\expndtw0 \
+There are always multiple ways to specify constraints for your user interface.\
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls3\ilvl0\cf2 \expnd0\expndtw0\kerning0
+And remember that in general, 
+\i \'93Two constraints per view per dimension\'94 
+\i0 is enough to allow Interface Builder to determine the size and position of any view on any device.\
+\pard\tx720\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs60 \cf2 Relations to sibling\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \
+In the 
+\f1\fs28\fsmilli14400 \cb5 Document Outline
+\f0\fs32 \cb1  pane you should see that the screen contains more views besides the container and label:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 9.12.06 AM.png \width5340 \height4140 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Move to the storyboard and drag the heart to the middle \'96\'a0you will see guides appear when you have centred the heart:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 9.09.14 AM.png \width6460 \height9760 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+Notice in the 
+\f1\fs28\fsmilli14400 \cb5 Preview
+\f0\fs32 \cb1  that the heart is centred on the iPhone 8, because we moved it on the storyboard, and the storyboard is set to be viewed as an iPhone 8.\
+\
+Remember, it will not be centred on other devices until we add constraints!\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 7.10.36 AM.png \width17840 \height11800 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+So, centre the heart horizontally and vertically with appropriate constraints \'96\'a0drag from 
+\f1\fs28\fsmilli14400 \cb5 Heart
+\f0\fs32 \cb1  to the superview: \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 9.13.58 AM.png \width5600 \height3940 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+Add the constraints:\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 9.14.05 AM.png \width5100 \height4120 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 You can see in 
+\f1\fs28\fsmilli14400 \cb5 Preview
+\f0\fs32 \cb1  that the heart will show in the centre of the screen on all devices:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 7.11.25 AM.png \width17980 \height11840 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 Next we will make the 
+\f1\fs28\fsmilli14400 \cb5 We
+\f0\fs32 \cb1  and 
+\f1\fs28\fsmilli14400 \cb5 Swift
+\f0\fs32 \cb1  labels be on the same level as the heart with a bit of spacing in between.\
+\
+With Auto Layout, this is easy!\
+\
+You can add constraints between views that have a common superview (directly or indirectly).\
+\
+Move the labels into the desired position on the storyboard. Note, again, that this only improves the layout on the iPhone 8:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 4.31.29 PM.png \width6860 \height10200 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+We can see this in the device previews:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 7.12.25 AM.png \width17680 \height11660 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+To position the labels correctly on all devices, we must use constraints.\
+\
+Control drag from the 
+\f1\fs28\fsmilli14400 \cb5 We
+\f0\fs32 \cb1  label to the heart:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 4.33.26 PM.png \width5920 \height820 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\'85 and add Horizontal Spacing and Center Vertically constraints:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 4.33.41 PM.png \width3880 \height5700 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Then, from the 
+\f1\fs28\fsmilli14400 \cb5 Swift
+\f0\fs32 \cb1  label to the heart, make the same constraints as above. \
+\
+Now the labels will be on the same level with the heart:\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 7.13.39 AM.png \width18180 \height12040 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+
+\fs60 \cf2 Aspect Ratio\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \
+Details matter, right? The heart logo a bit too small on an iPad, don\'92t you think?\
+\
+We can fix that with an 
+\i aspect ratio constraint
+\i0 .\
+\
+
+\i What\'92s that you say?\
+
+\i0 \
+So far when we made constraints we only used a coefficient of 
+\f1\fs28\fsmilli14400 \cb5 1
+\f0\fs32 \cb1  , for example, with the leading space constraint for the heart:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 4.39.41 PM.png \width5200 \height3940 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+The relation in this case is actually:\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf4 \cb5 Heart.Leading = We.Trailing * 1 + 8
+\f0\fs32 \cf2 \cb1 \
+\
+Essentially, we ignored the multiplier \'96 the coefficient \'96 to make things easier to understand earlier in this tutorial.\
+\
+The complete relation that all constraints use looks like this:\
+\
+
+\f1\fs24 \cf4 \cb5 FirstItem.attribute1 = SecondItem.attribute2 * coefficient + constant\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf2 \cb1 \
+Let\'92s make the heart bigger on iPad.\
+\
+Control-drag from the heart to the superview:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 4.43.19 PM.png \width7180 \height5160 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Add the 
+\f1\fs28\fsmilli14400 \cb5 Aspect Ratio
+\f0\fs32 \cb1  constraint:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 4.44.10 PM.png \width5160 \height4160 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+With the superview selected in the 
+\f1\fs28\fsmilli14400 \cb5 Document Outline
+\f0\fs32 \cb1 :\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 4.46.06 PM.png \width3840 \height2320 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Go to the 
+\f1\fs28\fsmilli14400 \cb5 Size Inspector
+\f0\fs32 \cb1  and double click on the new constraint:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 4.46.51 PM.png \width5080 \height4120 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Make sure you have 
+\f1\fs28\fsmilli14400 \cb5 Heart.Width
+\f0\fs32 \cb1  as the first item and 
+\f1\fs28\fsmilli14400 \cb5 Superview.Width
+\f0\fs32 \cb1  as the second one:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 4.49.19 PM.png \width5160 \height5040 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Depending on the direction you dragged you might have gotten different combinations of width and height.\
+\
+You can see that the constant for this relation is 
+\f1\fs28\fsmilli14400 \cb5 0
+\f0\fs32 \cb1  and the coefficient is 
+\f1\fs28\fsmilli14400 \cb5 60:667
+\f0\fs32 \cb1  .\
+\
+This means the heart\'92s width is defined by the relation:\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf4 \cb5 Heart.Width = Superview.Width * (60/667) + 0
+\f0\fs32 \cf2 \cb1 \
+\
+or:\
+\
+
+\f1\fs24 \cf4 \cb5 Heart.Width = Superview.Width * 0.089955 + 0
+\f0\fs32 \cf2 \cb1 \
+\
+In other words, the heart\'92s width is currently about 
+\f1\fs28\fsmilli14400 \cb5 8.9%
+\f0\fs32 \cb1  of the width of the superview.\
+\
+Note that 
+\f1\fs28\fsmilli14400 \cb5 Interface Builder
+\f0\fs32 \cb1  lets you express these ratios in a more human friendly way \'96 fractions!\
+\
+Because when you see 
+\f1\fs28\fsmilli14400 \cb5 0.089955
+\f0\fs32 \cb1  you don\'92t immediately think \'96 \'93Oh! That\'92s 
+\f1\fs28\fsmilli14400 \cb5 60/667
+\f0\fs32 \cb1  \'93. Fractions are way more intuitive. Really!\
+\pard\pardeftab720\partightenfactor0
+
+\fs35 \cf2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 Let\'92s adjust the ratio so that the width of the heart is 1/8 the width of the superview:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 4.56.33 PM.png \width5120 \height3340 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+Look at the preview \'96 you\'92ll see there is still not much of an improvement!\
+\
+To fix this, we\'92ll make the height of the heart equal to it\'92s width.\
+\
+Control-drag from the heart to itself:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 4.57.49 PM.png \width5760 \height1140 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Then select the 
+\f1\fs28\fsmilli14400 \cb5 Aspect Ratio
+\f0\fs32 \cb1  constraint:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 4.57.56 PM.png \width3860 \height2400 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+Now be sure the 
+\f1\fs28\fsmilli14400 \cb5 Heart
+\f0\fs32 \cb1  is selected, then open the 
+\f1\fs28\fsmilli14400 \cb5 Size Inspector
+\f0\fs32 \cb1  and set the new constraint to a 1:1 ratio:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 5.00.30 PM.png \width5200 \height4980 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+Be sure the first and second item values are set as shown. You should see the heart is now emphasized on all devices:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 7.20.35 AM.png \width19980 \height13220 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs60 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 Stack View\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \
+So far so good. We made the We 
+\f4 \cf7 \uc0\u10084 
+\f0 \cf2  Swift logo with an image and two labels.\
+\
+This approach has a small problem, you can clearly see on small devices that while the heart is centred, the logo as a whole is not actually centred inside the view.\
+
+\i \
+Any ideas on how to solve this?
+\i0 \
+\
+One way would be to move the components into a container and then center that container.\
+\
+Starting with iOS 9 we have an special container that makes this kind of layout easy to implement \'96 {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIStackView_Class_Reference/"}}{\fldrslt \cf3 UIStackView}}.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs28\fsmilli14400 \cf2 \cb5 UIStackView
+\f0\fs32 \cb1  uses Auto Layout to arrange its subviews one after the other horizontally or vertically.\
+\
+You can customise the spacing, alignment, and distribution of subviews.\
+\
+The alignment style refers to the way the stack view arranges its subviews perpendicular to its axis. Here are a couple of examples of alignment:\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs44 \cf2 Top\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/141ef2b284bea4a76ef363b45287d3bd3aa4cf5f/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30382d61742d31302e33332e35342d636f70792d65313434313639383936383732362e706e67"}}{\fldrslt 
+\fs32 \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30382d61742d31302e33332e35342d636f70792d65313434313639383936383732362e706e67.png \width5700 \height2760 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf3 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs44 \cf2 Leading\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/0e7b269f7060fab6f3273b434cc00a8bd8194105/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30382d61742d31312e30382e30392d65313434313639393936353335312e706e67"}}{\fldrslt 
+\fs32 \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30382d61742d31312e30382e30392d65313434313639393936353335312e706e67.png \width1590 \height3465 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf3 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs44 \cf2 Center\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/50e6a6697f4b947fc9deee9187013e117c0a6eee/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30382d61742d31302e33342e30332d65313434313639383935393334362e706e67"}}{\fldrslt 
+\fs32 \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30382d61742d31302e33342e30332d65313434313639383935393334362e706e67.png \width5700 \height2760 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf3 \
+\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/fdd8ea871befbb7aad89540ff3517c177d621e0b/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30382d61742d31312e30382e33352d65313434313639393934373632332e706e67"}}{\fldrslt \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30382d61742d31312e30382e33352d65313434313639393934373632332e706e67.png \width1590 \height3465 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+\cf3 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs44 \cf2 Bottom\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/d85c950839a03dbc806e782a1c932748ee253665/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30382d61742d31302e33332e35342d65313434313639383937353533312e706e67"}}{\fldrslt 
+\fs32 \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30382d61742d31302e33332e35342d65313434313639383937353533312e706e67.png \width5700 \height2760 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf3 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs44 \cf2 Trailing\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/365769618faa2fe4f44e3d89d74d459421ea90ef/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30382d61742d31312e30382e32332d65313434313639393935373738312e706e67"}}{\fldrslt 
+\fs32 \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30382d61742d31312e30382e32332d65313434313639393935373738312e706e67.png \width1590 \height3465 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf3 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 Let\'92s make a the main menu for a game using a stack view!\
+\
+( Later on, we\'92ll apply what we\'92ve learned about stack views to fix the We 
+\f4 \cf7 \uc0\u10084 
+\f0 \cf2  Swift logo placement. )\
+\
+So, add a few UIButton objects for the different options from the menu:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 5.11.30 PM.png \width5160 \height4900 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 Like so:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 5.12.27 PM.png \width5880 \height5760 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Rename them by double-clicking on each in turn:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 5.13.38 PM.png \width6700 \height6320 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Then select all the buttons (click each button while holding down the 
+\f1\fs28\fsmilli14400 \cb5 Command
+\f0\fs32 \cb1  key on your keyboard):\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 5.14.08 PM.png \width2960 \height2540 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 Find the 
+\f1\fs28\fsmilli14400 \cb5 Stack
+\f0\fs32 \cb1  button in the lower right corner of 
+\f1\fs28\fsmilli14400 \cb5 Interface Builder
+\f0\fs32 \cb1  and press it.\
+\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/4fafd51ad631422f308f2e294004acb97f8a2e37/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30382d61742d31312e30322e34352e706e67"}}{\fldrslt \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30382d61742d31312e30322e34352e706e67.png \width2120 \height500 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+\cf3 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 A stack view should wrap the buttons:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 5.14.46 PM.png \width2600 \height2540 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 Select the stack view and open the 
+\f1\fs28\fsmilli14400 \cb5 Attribute Inspector
+\f0\fs32 \cb1 .\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 5.15.47 PM.png \width5160 \height3380 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 By default the spacing is 
+\f1\fs28\fsmilli14400 \cb5 0
+\f0\fs32 \cb1  and the alignment is 
+\f1\fs28\fsmilli14400 \cb5 Trailing
+\f0\fs32 \cb1 . Change the spacing to 
+\f1\fs28\fsmilli14400 \cb5 10
+\f0\fs32 \cb1  and the alignment to 
+\f1\fs28\fsmilli14400 \cb5 Center
+\f0\fs32 \cb1 .\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 5.16.34 PM.png \width2100 \height2940 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+This should give you a sense of how quickly a stack view can help you organize related views in your interface.\
+\
+You can go ahead and delete the four buttons together with the stack view they are contained within.\
+\
+Now let\'92s get back to fixing the We 
+\f4 \cf7 \uc0\u10084 
+\f0 \cf2  Swift logo.\
+\
+Remove the align center constraints from the 
+\f1\fs28\fsmilli14400 \cb5 Heart
+\f0\fs32 \cb1 , along with the horizontal spacing constraints between the 
+\f1\fs28\fsmilli14400 \cb5 Heart
+\f0\fs32 \cb1  and each label.\
+\
+You can do this by selecting the constraints with the mouse pointer while holding down the 
+\f1\fs28\fsmilli14400 \cb5 Command
+\f0\fs32 \cb1  key. Then hit the 
+\f1\fs28\fsmilli14400 \cb5 Delete
+\f0\fs32 \cb1  key.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 5.19.54 PM.png \width7260 \height8000 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Notice that the layouts on each device are no longer centred nicely \'96 don\'92t worry, we\'92ll fix this with the stack view:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 7.27.29 AM.png \width20160 \height13420 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Select the labels and heart at the same time \'96 this might be easiest from the 
+\f1\fs28\fsmilli14400 \cb5 Document Outline
+\f0\fs32 \cb1 :\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 5.24.17 PM.png \width4420 \height3400 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Then click on the 
+\f1\fs28\fsmilli14400 \cb5 Stack
+\f0\fs32 \cb1  button.\
+\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/4fafd51ad631422f308f2e294004acb97f8a2e37/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30382d61742d31312e30322e34352e706e67"}}{\fldrslt \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30382d61742d31312e30322e34352e706e67.png \width2120 \height500 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+\cf3 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 Select the newly-created stack view:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 5.25.15 PM.png \width3960 \height2700 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Open the 
+\f1\fs28\fsmilli14400 \cb5 Attributes Inspector
+\f0\fs32 \cb1 :\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 5.25.52 PM.png \width5200 \height3500 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Now set the alignment to 
+\f1\fs28\fsmilli14400 \cb5 Center
+\f0\fs32 \cb1  and spacing to 
+\f1\fs28\fsmilli14400 \cb5 5
+\f0\fs32 \cb1  points:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 5.26.58 PM.png \width5080 \height3500 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Now we will centre the stack view in the superview \'96 control drag to from 
+\f1\fs28\fsmilli14400 \cb5 Stack View
+\f0\fs32 \cb1  to the superview:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 5.28.03 PM.png \width7160 \height2620 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+Add the align center constraints to the stack view:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2016-11-12 at 5.29.00 PM.png \width5200 \height4180 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\
+And voil\'e0!  You have a well designed layout on all device sizes \'96 try rotating each device too!\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2018-01-26 at 7.29.56 AM.png \width26660 \height14040 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs60 \cf2 Margins\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \
+Sometimes you want to add an interface component close to the side of a container but not starting from the edge.\
+\
+The size of that space will depend on the screen size. On an iPad you will want to leave more space than on an iPhone.\
+\
+Fortunately iOS has a standard margin size defined for each device.\
+\
+To arrange a view relative to the margin of its container all you need to do is make the constraint relative to the margin.\
+\
+The default margin on iOS for iPhone is 
+\f1\fs28\fsmilli14400 \cb5 \{top: 8, left: 16, bottom: 8, right: 16\}
+\f0\fs32 \cb1 .\
+\
+The default margin on iOS for iPad is 
+\f1\fs28\fsmilli14400 \cb5 \{top: 8, left: 20, bottom: 8, right: 20\}
+\f0\fs32 \cb1 .\
+\
+To change this you need to set the 
+\f1\fs28\fsmilli14400 \cb5 layoutMargins
+\f0\fs32 \cb1  property in code.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf4 \cb5 container.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 10, right: 20)\
+\pard\pardeftab720\partightenfactor0
+
+\f0\i\fs32 \cf2 \cb1 \
+Why are margins so useful?
+\i0 \
+\
+By using them you can adjust the placement of multiple views inside your container if they have constraints relative to its margin 
+\b with one line of code
+\b0 .\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs60 \cf2 Conclusion\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \
+Auto Layout is a powerful tool \'96 and the default layout tool for building interfaces.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs60 \cf2 Exercises\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \
+Now it\'92s your turn to apply what you have learned.\
+\
+Complete the two exercises below. Remember to commit your work after each exercise.\
+\
+All exercises should be created with a preview of an interface in a few devices of different sizes.\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \ul \ulc2 Exercise One\ulnone \
+\
+The red view should have a width equal to 
+\f1\fs28\fsmilli14400 \cb5 2/3
+\f0\fs32 \cb1  of the width of the screen and half the height.\
+\
+The blue view should have a 
+\f1\fs28\fsmilli14400 \cb5 1/3
+\f0\fs32 \cb1  of the width of the screen.\
+\
+And the purple view should have half the height and the same width as the screen.\
+\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/a39cb1fd1890bbffb90f34564c7499e3bbe1aa5c/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30392d61742d31322e34352e34352d65313434313739323933353233332e706e67"}}{\fldrslt \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30392d61742d31322e34352e34352d65313434313739323933353233332e706e67.png \width11250 \height8100 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+\cf3 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \ul Exercise Two\ulnone \
+\
+This is the view for a random cute image viewer. It has an image view that fills most of the screen and three buttons.\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://camo.githubusercontent.com/4ac191a8e9e6ac6b8430e1e64b1097f837b384d5/68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30392d61742d31322e35392e35332d65313434313739333132383833362e706e67"}}{\fldrslt \cf3 {{\NeXTGraphic 68747470733a2f2f7777772e7765686561727473776966742e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30392f53637265656e2d53686f742d323031352d30392d30392d61742d31322e35392e35332d65313434313739333132383833362e706e67.png \width11250 \height7935 \noorient \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}}}\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+}
