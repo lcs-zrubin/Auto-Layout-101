@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -94,35 +95,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0fZ-KS-7FP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="kZS-dK-W6H">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYU-cC-iig" userLabel="Red View">
-                                                <rect key="frame" x="0.0" y="0.0" width="250" height="333.5"/>
-                                                <color key="backgroundColor" red="1" green="0.0" blue="0.029831843470767616" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xz-yM-GbL" userLabel="Blue View">
-                                                <rect key="frame" x="250" y="0.0" width="125" height="333.5"/>
-                                                <color key="backgroundColor" red="0.0" green="0.59344493192145009" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHi-je-5Nf">
-                                        <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
-                                        <color key="backgroundColor" red="0.75945466804666384" green="0.23534578877963419" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </view>
-                                </subviews>
-                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHi-je-5Nf" userLabel="Purple View">
+                                <rect key="frame" x="0.0" y="333" width="375" height="333.5"/>
+                                <color key="backgroundColor" red="0.75945466804666384" green="0.23534578877963419" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYU-cC-iig" userLabel="Red View">
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="333.5"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.029831843470767616" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xz-yM-GbL" userLabel="Blue View">
+                                <rect key="frame" x="250" y="0.0" width="125" height="333.5"/>
+                                <color key="backgroundColor" red="0.0" green="0.59344493192145009" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0fZ-KS-7FP" firstAttribute="leading" secondItem="Aml-vz-vLR" secondAttribute="leading" id="6zi-fo-wkI"/>
-                            <constraint firstItem="0fZ-KS-7FP" firstAttribute="top" secondItem="Aml-vz-vLR" secondAttribute="top" id="XTe-Fg-LpJ"/>
-                            <constraint firstItem="kBf-wN-Mth" firstAttribute="top" secondItem="0fZ-KS-7FP" secondAttribute="bottom" id="dNY-iU-LJo"/>
-                            <constraint firstAttribute="trailing" secondItem="0fZ-KS-7FP" secondAttribute="trailing" id="jZH-N4-MBK"/>
+                            <constraint firstItem="bYU-cC-iig" firstAttribute="width" secondItem="Aml-vz-vLR" secondAttribute="width" multiplier="2:3" id="7KA-wZ-9m1"/>
+                            <constraint firstItem="wHi-je-5Nf" firstAttribute="width" secondItem="Aml-vz-vLR" secondAttribute="width" multiplier="1:1" id="Ciw-ZR-Nn8"/>
+                            <constraint firstItem="bYU-cC-iig" firstAttribute="height" secondItem="Aml-vz-vLR" secondAttribute="height" multiplier="1:2" id="E3e-10-kLa"/>
+                            <constraint firstItem="5xz-yM-GbL" firstAttribute="width" secondItem="Aml-vz-vLR" secondAttribute="width" multiplier="1:3" id="KAR-ZO-SFD"/>
+                            <constraint firstItem="bYU-cC-iig" firstAttribute="leading" secondItem="Aml-vz-vLR" secondAttribute="leadingMargin" constant="-16" id="MZf-To-d2R"/>
+                            <constraint firstItem="wHi-je-5Nf" firstAttribute="leading" secondItem="Aml-vz-vLR" secondAttribute="leadingMargin" constant="-16" id="OKP-8u-ssh"/>
+                            <constraint firstItem="bYU-cC-iig" firstAttribute="top" secondItem="Aml-vz-vLR" secondAttribute="top" id="Xrl-eQ-81r"/>
+                            <constraint firstItem="5xz-yM-GbL" firstAttribute="top" secondItem="Aml-vz-vLR" secondAttribute="top" id="ipf-Rj-3pw"/>
+                            <constraint firstItem="wHi-je-5Nf" firstAttribute="height" secondItem="Aml-vz-vLR" secondAttribute="height" multiplier="1:2" id="k48-ac-qau"/>
+                            <constraint firstItem="5xz-yM-GbL" firstAttribute="height" secondItem="Aml-vz-vLR" secondAttribute="height" multiplier="1:2" id="nqj-Im-5op"/>
+                            <constraint firstItem="wHi-je-5Nf" firstAttribute="bottom" secondItem="Aml-vz-vLR" secondAttribute="bottom" id="psc-PM-8x7"/>
+                            <constraint firstItem="5xz-yM-GbL" firstAttribute="trailing" secondItem="Aml-vz-vLR" secondAttribute="trailing" id="ywN-c4-LcB"/>
                         </constraints>
                     </view>
                 </viewController>
