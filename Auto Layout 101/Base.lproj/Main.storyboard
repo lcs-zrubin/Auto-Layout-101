@@ -83,6 +83,54 @@
             <point key="canvasLocation" x="366" y="65"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="sjX-Nz-kNT">
+            <objects>
+                <viewController id="ded-gw-ea6" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JAP-as-b4d"/>
+                        <viewControllerLayoutGuide type="bottom" id="kBf-wN-Mth"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Aml-vz-vLR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0fZ-KS-7FP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="kZS-dK-W6H">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYU-cC-iig" userLabel="Red View">
+                                                <rect key="frame" x="0.0" y="0.0" width="250" height="333.5"/>
+                                                <color key="backgroundColor" red="1" green="0.0" blue="0.029831843470767616" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xz-yM-GbL" userLabel="Blue View">
+                                                <rect key="frame" x="250" y="0.0" width="125" height="333.5"/>
+                                                <color key="backgroundColor" red="0.0" green="0.59344493192145009" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHi-je-5Nf">
+                                        <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
+                                        <color key="backgroundColor" red="0.75945466804666384" green="0.23534578877963419" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0fZ-KS-7FP" firstAttribute="leading" secondItem="Aml-vz-vLR" secondAttribute="leading" id="6zi-fo-wkI"/>
+                            <constraint firstItem="0fZ-KS-7FP" firstAttribute="top" secondItem="Aml-vz-vLR" secondAttribute="top" id="XTe-Fg-LpJ"/>
+                            <constraint firstItem="kBf-wN-Mth" firstAttribute="top" secondItem="0fZ-KS-7FP" secondAttribute="bottom" id="dNY-iU-LJo"/>
+                            <constraint firstAttribute="trailing" secondItem="0fZ-KS-7FP" secondAttribute="trailing" id="jZH-N4-MBK"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tGK-9E-8JF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1024.8" y="68.815592203898049"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="Wgm-tQ-ALd">
             <objects>
                 <viewController id="6uX-QF-f57" customClass="ViewController" customModule="Auto_Layout_101" customModuleProvider="target" sceneMemberID="viewController">
